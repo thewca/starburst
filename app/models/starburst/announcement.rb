@@ -3,7 +3,7 @@ module Starburst
 
 		validates :body, presence: true
 
-		serialize :limit_to_users
+		serialize :limit_to_users, coder: YAML
 
 		scope :ready_for_delivery, lambda {
 			where("(start_delivering_at < ? OR start_delivering_at IS NULL)
